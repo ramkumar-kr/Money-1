@@ -1,11 +1,12 @@
 class Money
 	def initialize(rupee,paisa)
-    @rupee = rupee
-    @paisa = paisa
+
+    @rupee = rupee + (paisa /100).to_i
+    @paisa = paisa % 100
 	end
 
   def add(other_money)
-    Money.new(2,90)
+    Money.new(0,to_paise + other_money.to_paise)
   end
 
   def == other_money
