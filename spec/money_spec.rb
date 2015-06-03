@@ -60,6 +60,13 @@ describe Money do
     money1 = Money.new(0,0) 
     money2 = Money.new(0,271)
     money3 = Money.new(2,71)
-    expect(money1.add(money2)).to eq(money3)
+    expect(money1 + money2).to eq(money3)
+  end
+
+  it "is subtrating correctly calculated for " do
+    money1 = Money.new(2,56)
+    money2 = Money.new(2,56)
+    money3 = Money.new(0,0)
+    expect(money1 - money2).to eq(money3)
   end
 end 

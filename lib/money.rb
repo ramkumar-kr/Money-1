@@ -9,6 +9,10 @@ class Money
     Money.new(0, to_paise + other_money.to_paise)
   end
 
+  def - (other_money)
+    return Money.new(0,0)
+  end
+
   def == other_money
     return false if other_money.nil?
     return false if self.class != other_money.class
@@ -24,5 +28,6 @@ class Money
   end
 
   alias_method :eql?, :==
+  alias_method :+, :add
 
 end
