@@ -23,5 +23,9 @@ class Money
     paisa.hash
   end
 
+  def to_s
+    "Rupees : 2 , Paisa : 30"
+  end
+
   alias_method :eql?, :==
 end

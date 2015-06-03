@@ -76,4 +76,8 @@ describe Money do
     money3 = Money.new(-1,-200)
     expect(money1 - money2).to eq(money3)
   end
+
+  it "is to_s of Money(2,30) Rupees : 2 , Paisa : 30" do
+    expect(Money.new(2,30).to_s).to eq("Rupees : 2 , Paisa : 30")
+  end
 end 
