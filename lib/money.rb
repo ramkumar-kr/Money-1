@@ -24,7 +24,13 @@ class Money
   end
 
   def to_s
-    "Rupees : 2 , Paisa : 30"
+    rupee = (paisa.abs / 100).to_i
+    residual_paisa = (paisa.abs % 100).to_i
+
+    pretty_string = (rupee != 0 ? "Rupees #{rupee} " : "")
+    pretty_string = pretty_string + (residual_paisa != 0 ? "Paisa #{residual_paisa}" : "")
+    pretty_string = (paisa < 0 ? "- " : "") + pretty_string
+    pretty_string.strip
   end
 
   alias_method :eql?, :==

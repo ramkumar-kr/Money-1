@@ -77,7 +77,21 @@ describe Money do
     expect(money1 - money2).to eq(money3)
   end
 
-  it "is to_s of Money(2,30) Rupees : 2 , Paisa : 30" do
-    expect(Money.new(2,30).to_s).to eq("Rupees : 2 , Paisa : 30")
+  it "is to_s of Money(2,30) Rupees : 2  Paisa : 30" do
+    expect(Money.new(2,30).to_s).to eq("Rupees 2 Paisa 30")
   end
-end 
+
+  it "is to_s of Money(-2,30) Rupees : -2 , Paisa : 30 " do
+    expect(Money.new(-2,30).to_s).to eq("- Rupees 1 Paisa 70")
+  end
+
+  it "is to_s of Money(0,10) Paisa 10" do
+    expect(Money.new(0,10).to_s).to eq("Paisa 10")
+  end
+  it "is to_s of Money(10,0) Rupees 10" do
+    expect(Money.new(10,0).to_s).to eq("Rupees 10")
+  end
+  it "is to_s of Money(-10,-10) Rupees 10" do
+    expect(Money.new(-10,-10).to_s).to eq("- Rupees 10 Paisa 10")
+  end
+ end 
