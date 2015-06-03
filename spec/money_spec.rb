@@ -63,10 +63,17 @@ describe Money do
     expect(money1 + money2).to eq(money3)
   end
 
-  it "is subtrating correctly calculated for " do
+  it "is subtraction correctly calculated for 2 & 56   and 2 & 56" do
     money1 = Money.new(2,56)
     money2 = Money.new(2,56)
     money3 = Money.new(0,0)
+    expect(money1 - money2).to eq(money3)
+  end
+
+  it "is subtraction correctly calculated for 2 & 56   and   3 & 56" do
+    money1 = Money.new(2,66)
+    money2 = Money.new(3,266)
+    money3 = Money.new(-1,-200)
     expect(money1 - money2).to eq(money3)
   end
 end 

@@ -10,7 +10,7 @@ class Money
   end
 
   def - (other_money)
-    return Money.new(0,0)
+    Money.new(0, to_paise - other_money.to_paise)
   end
 
   def == other_money
