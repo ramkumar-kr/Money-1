@@ -1,12 +1,12 @@
+#Represent and Add Money using Rs and paisa 
 class Money
 	def initialize(rupee,paisa)
-
-    @rupee = rupee + (paisa /100).to_i
-    @paisa = paisa % 100
+    @rupee = rupee + (paisa/100).to_i
+    @paisa = (paisa % 100).to_i
 	end
 
   def add(other_money)
-    Money.new(0,to_paise + other_money.to_paise)
+    Money.new(0, to_paise + other_money.to_paise)
   end
 
   def == other_money

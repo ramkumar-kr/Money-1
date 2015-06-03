@@ -57,10 +57,10 @@ describe Money do
     expect(money1.add(money2)).not_to eq(money3)
   end
 
-  it "two money values are added correctly" do
+  it "two money values with paisa > 100 are added correctly" do
     money1 = Money.new(0,0) 
-    money2 = Money.new(0,201)
-    money3 = Money.new(2,1)
+    money2 = Money.new(0,271)
+    money3 = Money.new(2,71)
     expect(money1.add(money2)).to eq(money3)
   end
 end 
