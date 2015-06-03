@@ -46,14 +46,14 @@ describe Money do
 		money1 = Money.new(1,45) 
 		money2 = Money.new(1,45)
 		money3 = Money.new(2,90)
-		expect(money1.add(money2)).to eq(money3)
+		expect(money1 + money2).to eq(money3)
 	end
 
   it "two money values are added correctly" do
     money1 = Money.new(1,50) 
     money2 = Money.new(1,45)
     money3 = Money.new(2,90)
-    expect(money1.add(money2)).not_to eq(money3)
+    expect(money1 + money2 ).not_to eq(money3)
   end
 
   it "two money values with paisa > 100 are added correctly" do

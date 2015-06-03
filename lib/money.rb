@@ -1,33 +1,27 @@
-#Represent and Add Money using Rs and paisa 
+#Represent and Add Money using paisa 
 class Money
+  attr_reader :paisa
 	def initialize(rupee,paisa)
-    @rupee = rupee + (paisa/100).to_i
-    @paisa = (paisa % 100).to_i
+    @paisa = rupee * 100 + paisa
 	end
 
-  def add(other_money)
-    Money.new(0, to_paise + other_money.to_paise)
+  def +(other_money)
+    Money.new(0, paisa + other_money.paisa)
   end
 
   def - (other_money)
-    Money.new(0, to_paise - other_money.to_paise)
+    Money.new(0, paisa - other_money.paisa)
   end
 
   def == other_money
     return false if other_money.nil?
     return false if self.class != other_money.class
-    to_paise == other_money.to_paise
-  end
-
-  def to_paise
-    @rupee * 100 + @paisa
+    paisa == other_money.paisa
   end
 
   def hash
-    to_paise.hash
+    paisa.hash
   end
 
   alias_method :eql?, :==
-  alias_method :+, :add
-
 end
