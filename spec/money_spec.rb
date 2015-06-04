@@ -67,9 +67,9 @@ describe Money do
       expect(money1 + money2).to eq(money3)
     end
 
-    it "when added to object of other class return nil" do
+    it "when added to object of other class return TypeError" do
       money1 = Money.new(0,0)
-      expect(money1 + Object.new).to eq(nil)
+      expect{ money1 + Object.new }.to raise_exception(TypeError)
     end
   end
 
@@ -87,9 +87,9 @@ describe Money do
       expect { money1 - money2 }.to raise_exception
     end
 
-    it "when subtracted with object of other class return nil" do
+    it "when subtracted with object of other class return TypeError" do
       money1 = Money.new(0,0)
-      expect(money1 - Object.new).to eq(nil)
+      expect{ money1 - Object.new }.to raise_exception(TypeError)
     end
   end
 

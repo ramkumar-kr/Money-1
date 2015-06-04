@@ -11,11 +11,19 @@ class Money
 	end
 
   def +(other_money)
-    Money.new(0, amount + other_money.amount) if self.class == other_money.class
+    if self.class == other_money.class
+      Money.new(0, amount + other_money.amount)
+    else
+      raise TypeError.new('Cannot add money with #{other_money.class}'), caller
+    end
   end
 
   def -(other_money)
-    Money.new(0, amount - other_money.amount) if self.class == other_money.class
+    if self.class == other_money.class
+      Money.new(0, amount - other_money.amount)
+    else
+      raise TypeError.new('Cannot subtract money with #{other_money.class}'), caller
+    end
   end
 
   def ==(other_money)
