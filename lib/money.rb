@@ -49,5 +49,11 @@ class Money
     pretty_string.strip
   end
 
+  def <=> other_money
+    return 0 if self == other_money
+    return -1 if amount < other_money.amount
+    1
+  end
+
   alias_method :eql?, :==
 end

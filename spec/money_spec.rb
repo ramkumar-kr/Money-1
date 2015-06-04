@@ -120,4 +120,11 @@ describe Money do
       expect { Money.new(-10,-10) }.to raise_error
     end
   end  
+
+  context "sort" do
+    it "should return sorted array for elements having values (10,10), (30,20), (5,50)" do
+      array = [Money.new(10,10), Money.new(30,20), Money.new(5,50), ""]
+      expect(array.sort).to eq([Money.new(5,50), Money.new(10,10), Money.new(30,20)])
+    end
+  end
  end 
