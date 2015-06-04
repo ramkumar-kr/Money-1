@@ -81,11 +81,10 @@ describe Money do
       expect(money1 - money2).to eq(money3)
     end
 
-    it "is subtraction correctly calculated for 2 & 66   and   3 & 266" do
+    it "subtraction raises an exception when we subtract 3,266 from 2,66" do
       money1 = Money.new(2,66)
       money2 = Money.new(3,266)
-      money3 = Money.new(-1,-200)
-      expect(money1 - money2).to eq(money3)
+      expect { money1 - money2 }.to raise_exception
     end
 
     it "when subtracted with object of other class return nil" do
@@ -100,7 +99,7 @@ describe Money do
     end
 
     it "is to_s of Money(-2,30) Rupees : -2 , Paisa : 30 " do
-      expect(Money.new(-2,30).to_s).to eq("- Rupees 1 Paisa 70")
+      expect{ Money.new(-2,30).to_s }.to raise_exception
     end
 
     it "is to_s of Money(0,10) Paisa 10" do
@@ -112,7 +111,7 @@ describe Money do
     end
 
     it "is to_s of Money(-10,-10) Rupees 10" do
-      expect(Money.new(-10,-10).to_s).to eq("- Rupees 10 Paisa 10")
+      expect{ Money.new(-10,-10).to_s }.to raise_exception
     end
   end
 
