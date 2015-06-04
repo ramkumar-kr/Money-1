@@ -1,4 +1,4 @@
-#Represent and Add Money using paisa 
+#Defines attributes of Money in INR 
 class Money
   attr_reader :paisa
 	def initialize(rupee,paisa)
@@ -6,15 +6,14 @@ class Money
 	end
 
   def +(other_money)
-    Money.new(0, paisa + other_money.paisa)
+    Money.new(0, paisa + other_money.paisa) if self.class == other_money.class
   end
 
-  def - (other_money)
-    Money.new(0, paisa - other_money.paisa)
+  def -(other_money)
+    Money.new(0, paisa - other_money.paisa) if self.class == other_money.class
   end
 
-  def == other_money
-    return false if other_money.nil?
+  def ==other_money
     return false if self.class != other_money.class
     paisa == other_money.paisa
   end
