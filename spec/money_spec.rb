@@ -123,8 +123,13 @@ describe Money do
 
   context "sort" do
     it "should return sorted array for elements having values (10,10), (30,20), (5,50)" do
-      array = [Money.new(10,10), Money.new(30,20), Money.new(5,50), ""]
+      array = [Money.new(10,10), Money.new(30,20), Money.new(5,50)]
       expect(array.sort).to eq([Money.new(5,50), Money.new(10,10), Money.new(30,20)])
+    end
+
+    it "should return a TypeError when an array is sorted for elements having values (130,10), (30,20) and a Object" do
+      array = [Money.new(130,10), Money.new(30,20), Object.new]
+      expect { array.sort }.to raise_error(TypeError)
     end
   end
  end 
