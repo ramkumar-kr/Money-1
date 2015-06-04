@@ -1,5 +1,6 @@
 #Defines attributes of Money in INR 
 class Money
+  include Comparable
   attr_reader :amount
 	def initialize(rupee, paisa)
     amount = rupee * 100 + paisa
@@ -29,11 +30,6 @@ class Money
     operate(other_money) do 
       Money.new(0, amount - other_money.amount)
     end
-  end
-
-  def ==(other_money)
-    return false if self.class != other_money.class
-    amount == other_money.amount
   end
 
   def hash

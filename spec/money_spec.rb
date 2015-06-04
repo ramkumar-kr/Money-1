@@ -132,4 +132,19 @@ describe Money do
       expect { array.sort }.to raise_error(ArgumentError)
     end
   end
+
+  context "Inequality" do
+    it "having values(10,10) is less than another money object having values (11,12)" do
+      money1 = Money.new(10,10)
+      money2 = Money.new(11,12)
+      expect(money1).to be < money2
+    end
+
+    it "having values(130,10) is greater than another money object having values (11,12)" do
+      money1 = Money.new(130,10)
+      money2 = Money.new(11,12)
+      expect(money1).to be > money2
+    end
+
+  end
  end 
