@@ -2,7 +2,12 @@
 class Money
   attr_reader :paisa
 	def initialize(rupee,paisa)
-    @paisa = rupee * 100 + paisa
+    paisa = rupee * 100 + paisa
+    if paisa < 0
+      raise 'Negative Money value entered' 
+    else
+      @paisa = paisa
+    end
 	end
 
   def +(other_money)
@@ -13,7 +18,7 @@ class Money
     Money.new(0, paisa - other_money.paisa) if self.class == other_money.class
   end
 
-  def ==other_money
+  def ==(other_money)
     return false if self.class != other_money.class
     paisa == other_money.paisa
   end

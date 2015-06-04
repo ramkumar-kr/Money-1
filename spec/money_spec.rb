@@ -110,9 +110,15 @@ describe Money do
     it "is to_s of Money(10,0) Rupees 10" do
       expect(Money.new(10,0).to_s).to eq("Rupees 10")
     end
-    
+
     it "is to_s of Money(-10,-10) Rupees 10" do
       expect(Money.new(-10,-10).to_s).to eq("- Rupees 10 Paisa 10")
+    end
+  end
+
+  context "Negative Money Errors" do
+    it "should throw an exception if input argument is negative" do
+      expect { Money.new(-10,-10) }.to raise_exception
     end
   end  
  end 
