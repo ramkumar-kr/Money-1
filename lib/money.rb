@@ -10,20 +10,22 @@ class Money
     end
 	end
 
-  def +(other_money)
-    if self.class == other_money.class
-      Money.new(0, amount + other_money.amount)
+  def operation(operator, other_money_object)
+    if self.class == other_money_object.class
+      result =  Money.new(0, amount + other_money_object.amount) if operator == 'add'
+      result = Money.new(0, amount - other_money_object.amount) if operator == 'subtract'
     else
-      raise TypeError.new('Cannot add money with #{other_money.class}'), caller
+      raise TypeError.new('Cannot #{operator} money with #{other_money.class}'), caller
     end
+    result
+  end
+
+  def +(other_money)
+    operation('add', other_money)
   end
 
   def -(other_money)
-    if self.class == other_money.class
-      Money.new(0, amount - other_money.amount)
-    else
-      raise TypeError.new('Cannot subtract money with #{other_money.class}'), caller
-    end
+    operation('subtract', other_money)
   end
 
   def ==(other_money)
