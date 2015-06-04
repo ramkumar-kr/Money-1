@@ -50,11 +50,8 @@ class Money
   end
 
   def <=>(other_money)
-    operate(other_money) do
-      return 0 if self == other_money
-      return -1 if amount < other_money.amount
-      1
-    end
+    raise ArgumentError if self.class != other_money.class
+    amount <=> other_money.amount
   end
 
   alias_method :eql?, :==

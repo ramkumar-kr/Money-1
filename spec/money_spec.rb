@@ -129,7 +129,7 @@ describe Money do
 
     it "should return a TypeError when an array is sorted for elements having values (130,10), (30,20) and a Object" do
       array = [Money.new(130,10), Money.new(30,20), Object.new]
-      expect { array.sort }.to raise_error(TypeError)
+      expect { array.sort }.to raise_error(ArgumentError)
     end
   end
  end 
